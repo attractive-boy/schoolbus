@@ -1,0 +1,44 @@
+<view class="lost-found">
+  <t-tabs value="{{tabValue}}" bind:change="onTabChange" t-class="tabs">
+    <t-tab-panel label="寻物启事" value="1" />
+    <t-tab-panel label="招领启事" value="2" />
+  </t-tabs>
+
+  <scroll-view scroll-y class="item-list" enable-flex refresher-enabled 
+               bind:refresherpulling="onPullDownRefresh"
+               refresher-triggered="{{refreshing}}"
+               bindscrolltolower="onLoadMore">
+    <view class="item-card" wx:for="{{items}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="card-header">
+        <t-avatar image="{{item.userAvatar}}" size="small" />
+        <view class="user-info">
+          <view class="username">{{item.userName}}</view>
+          <view class="time">{{item.createdAt}}</view>
+        </view>
+        <view class="status {{item.status === 'open' ? 'status-open' : 'status-closed'}}">
+          {{item.status === 'open' ? '进行中' : '已完成'}}
+        </view>
+      </view>
+      
+      <view class="card-content">
+        <view class="title">{{item.location}}</view>
+
+        <view class="image-list" wx:if="{{item.images.length}}">
+          <image wx:for="{{item.images}}" 
+                 wx:key="*this" 
+                 wx:for-item="img" 
+                 src="{{img}}" 
+                 mode="aspectFill" />
+        </view>
+      </view>
+    </view>
+
+    <view class="loading-more" wx:if="{{loading}}">
+      <t-loading size="40rpx" text="加载中..." />
+    </view>
+    
+    <t-empty wx:if="{{!items.length}}" description="暂无数据" />
+  </scroll-view>
+
+  <t-fab wx:if="{{isAdmin}}" icon="add" bind:click="goToPublish" aria-label="新建"  using-custom-navbar="true" style="position: fixed; bottom: 12vh; left: 50%; transform: translateX(-50%);display: flex; justify-content: center;"></t-fab>
+</view> 

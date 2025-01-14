@@ -1,0 +1,9 @@
+.t-tab-bar {
+  --td-tab-bar-border-color: #f6f6f6;
+  --td-tab-bar-bg-color: #ffffff;
+}
+
+.t-tab-bar-item {
+  --td-tab-bar-item-color: #999999;
+  --td-tab-bar-item-active-color: #1AAD19;
+} 

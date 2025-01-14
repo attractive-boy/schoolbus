@@ -1,0 +1,29 @@
+<view class="scan-container">
+  <view class="scan-area">
+
+    <view class="result-content" style="display: flex; flex-direction: column; align-items: center; padding: 20px; ">
+        <view class="result-item" style="margin-bottom: 15px;">
+            <t-avatar image="{{image}}" style="border: 2px solid #007aff; border-radius: 50%;" size="large" />
+          </view>
+      <view class="result-item" style="margin-bottom: 15px;">
+        <text class="value" style="font-size: 24px; font-weight: bold; color: #333;">{{nickname}}</text>
+      </view>
+      
+      <view class="result-item" style="margin-bottom: 15px;">
+        <text class="value" style="font-size: 20px; color: #666;">{{routeNames}}</text>
+      </view>
+     
+    </view>
+
+     <view class="scan-button" style="position: fixed; bottom: 15%; width: 80%;">
+    <t-button 
+      theme="primary" 
+      size="large" 
+      bind:tap="startScan"
+      style="width: 100%; border-radius: 5px; background-color: #007aff;"
+    >
+      <text style="color: white;">开始扫码</text>
+    </t-button>
+  </view>
+  </view>
+</view> 

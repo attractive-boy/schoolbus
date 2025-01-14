@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<view class="login-container">
+  <!-- 顶部装饰波浪 -->
+  <view class="wave-box">
+    <view class="wave wave-1"></view>
+    <view class="wave wave-2"></view>
+    <view class="wave wave-3"></view>
+  </view>
+  
+  <!-- 登录表单 -->
+  <view class="login-form">
+    <view class="role-select">
+      <t-radio-group value="{{role}}" bind:change="onRoleChange">
+        <view class="role-options">
+          <t-radio value="student" label="学生" />
+          <t-radio value="driver" label="司机" />
+        </view>
+      </t-radio-group>
+    </view>
+
+    <view class="avatar-section">
+      <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
+      </button>
+      <text class="avatar-tip">点击更换头像</text>
+    </view>
+
+    <view class="input-group">
+      <t-input
+        value="{{nickname}}"
+        placeholder="{{role === 'student' ? '请输入班级+姓名' : '请输入工号'}}"
+        prefixIcon="user"
+        clearable
+        bind:change="onNicknameInput"
+      />
+
+      <block wx:if="{{role === 'student'}}">
+        <t-cell title="{{communityName || '请选择所在小区'}}" bind:tap="handleSelectCommunity" arrow/>
+      </block>
+    </view>
+
+    
+
+    <view class="login-btn">
+      <t-button 
+        theme="primary" 
+        size="large" 
+        block 
+        bind:tap="handleLogin"
+      >登录</t-button>
+    </view>
+  </view>
+
+ 
+
+  <t-picker
+    visible="{{showCommunityPicker}}"
+    value="{{communityIndex}}"
+    data-key="community"
+    title="请选择所在小区"
+    cancelBtn="取消"
+    confirmBtn="确认"
+    usingCustomNavbar
+    bindchange="onCommunityChange"
+    bindpick="onColumnChange"
+    bindcancel="onPickerCancel"
+  >
+    <t-picker-item options="{{communitySelected}}"></t-picker-item>
+  </t-picker>
+
+</view>

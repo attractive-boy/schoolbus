@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "发布失物招领",
+  "usingComponents": {
+    "t-input": "/miniprogram_npm/tdesign-miniprogram/input/input",
+    "t-radio": "/miniprogram_npm/tdesign-miniprogram/radio/radio",
+    "t-radio-group": "/miniprogram_npm/tdesign-miniprogram/radio-group/radio-group",
+    "t-upload": "/miniprogram_npm/tdesign-miniprogram/upload/upload",
+    "t-button": "/miniprogram_npm/tdesign-miniprogram/button/button",
+    "t-textarea": "/miniprogram_npm/tdesign-miniprogram/textarea/textarea",
+    "t-picker": "/miniprogram_npm/tdesign-miniprogram/picker/picker",
+    "t-popup": "/miniprogram_npm/tdesign-miniprogram/popup/popup",
+    "t-picker-item": "/miniprogram_npm/tdesign-miniprogram/picker-item/picker-item",
+    "t-date-time-picker": "/miniprogram_npm/tdesign-miniprogram/date-time-picker/date-time-picker",
+    "t-cell-group": "/miniprogram_npm/tdesign-miniprogram/cell-group/cell-group",
+    "t-cell": "/miniprogram_npm/tdesign-miniprogram/cell/cell"
+  }
+} 

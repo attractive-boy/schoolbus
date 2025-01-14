@@ -1,0 +1,94 @@
+<view class="bus-list">
+  <view class="bus-item" wx:for="{{routes}}" wx:key="id" bindtap="goToBooking" data-id="{{item.id}}">
+    <view class="route-info">
+      <view class="route-name">
+        <t-icon name="bus" size="48rpx" color="#1989fa" />
+        <text>{{item.name}}</text>
+      </view>
+      <view class="route-time" bindtap="showDepartureTimes" data-id="{{item.id}}">
+        <t-icon name="time" size="32rpx" color="#1989fa" />
+        <text>出发时间</text>
+      </view>
+    </view>
+
+    <view class="stops-container">
+      <view class="route-line">
+        <view class="dot start"></view>
+        <view class="dot end"></view>
+      </view>
+      <view class="stops-list">
+        <view class="stop-item" wx:for="{{item.stops}}" wx:key="index" wx:for-item="stop">
+          <t-icon name="location" size="32rpx" color="#666" />
+          <text>{{stop}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-area">
+      <view class="status available">
+        可预约
+      </view>
+      <t-button theme="primary" size="small" class="book-btn" bindtap="showBookingPopup" data-id="{{item.id}}">立即预约</t-button>
+    </view>
+  </view>
+</view>
+
+<!-- 新增弹窗展示出发时间 -->
+<t-popup visible="{{showDeparturePopup}}" bind:visible-change="onDeparturePopupChange" placement="center" style="margin: 0 auto; width: 90%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+  <view>
+    <view class="header" style="display: flex; justify-content: center; align-items: center; padding: 16rpx; background-color: #f5f5f5; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+      <view class="title" style="font-size: 36rpx; font-weight: bold; color: #333;">出发时间</view>
+    </view>
+    <view wx:for="{{departureTimes}}" wx:key="index" class="time-item" style="padding: 16rpx; border-bottom: 1px solid #e0e0e0; text-align: center; transition: background-color 0.3s;">
+      <view style="display: flex; align-items: center; justify-content: center;">
+        <t-icon name="time" size="32rpx" color="#1989fa" />
+        <text style="font-size: 30rpx; color: #666; margin-left: 12rpx;">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</t-popup>
+
+<t-date-time-picker title="选择日期" visible="{{dateVisible}}" mode="month" value="{{month}}" format="YYYY-MM" bindchange="onConfirm" bindpick="onColumnChange" bindcancel="hidePicker" start="{{start}}" end="{{end}}" />
+
+<t-picker visible="{{showTripTypePicker}}" value="{{selectedTripTypeIndex}}" data-key="tripType" title="请选择行程类型" cancelBtn="取消" confirmBtn="确认" usingCustomNavbar bindchange="onTripTypeChange" bindpick="onColumnChange" bindcancel="onPickerCancel" bindconfirm="onPickerConfirm" >
+  <t-picker-item options="{{tripTypeOptions}}"></t-picker-item>
+</t-picker>
+<!-- 修改底部弹出层内容 -->
+
+<t-popup visible="{{showPopup}}" bind:visible-change="onVisibleChange" placement="bottom">
+  <view class="block">
+    <view class="header">
+      <view class="btn btn--cancel" aria-role="button" bindtap="closePopup">取消</view>
+      <view class="title">选择预约日期</view>
+      <view class="btn btn--confirm" aria-role="button" bindtap="confirmDate">确定</view>
+    </view>
+    <!-- 标题部分 -->
+    <t-cell-group title="选择预约日期">
+      <!-- 日期选择器 -->
+      <t-cell title="选择日期" arrow bind:tap="showDatePicker" hover>
+        <view slot="note" class="selected-dates" catch:tap="stopPropagation">
+          <t-tag wx:for="{{selectedDates}}" wx:key="index" variant="light" theme="primary" class="date-tag" closable bind:close="removeDate" data-index="{{index}}">
+            {{item}}
+          </t-tag>
+        </view>
+      </t-cell>
+      <!-- 行程类型选择器 -->
+      <t-cell title="行程类型" note="{{tripType}}" arrow bindtap="showTripTypePicker" />
+        <!-- 价格信息 -->
+        <t-cell title="单日价格" note="¥{{pricePerDay}}" />
+        <t-cell title="已选择天数" note="{{datesInMonth.length}}天" />
+        <t-cell title="总费用" note="¥{{totalPrice}}" />
+    </t-cell-group>
+
+
+    <!-- 底部按钮 -->
+    <view class="popup-footer">
+      <t-button theme="primary" block bind:tap="handleBooking" class="submit-btn">
+        确认预约 ¥{{totalPrice}}
+      </t-button>
+    </view>
+  </view>
+</t-popup>
+
+<view style="height: 10vh;">
+</view>

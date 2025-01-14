@@ -1,0 +1,62 @@
+.scan-container {
+  height: 100vh;
+  background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+  display: flex;
+  flex-direction: column;
+}
+
+.scan-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx;
+}
+
+.scan-hint {
+  margin-bottom: 40rpx;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.scan-button {
+  width: 80%;
+  margin-top: 20rpx;
+  border-radius: 25rpx;
+  background-color: #007aff;
+  color: white;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.3);
+}
+
+.result-area {
+  background: #ffffff;
+  padding: 30rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.2);
+}
+
+.result-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #007aff;
+}
+
+.result-item {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.result-item .label {
+  color: #666;
+  width: 160rpx;
+}
+
+.result-item .value {
+  flex: 1;
+  color: #333;
+  font-weight: 500;
+  font-size: 28rpx;
+} 

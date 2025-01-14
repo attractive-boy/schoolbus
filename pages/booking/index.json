@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText": "班车预定",
+  "usingComponents": {
+    "t-calendar": "/miniprogram_npm/tdesign-miniprogram/calendar/calendar",
+    "t-cell": "/miniprogram_npm/tdesign-miniprogram/cell/cell",
+    "t-button": "/miniprogram_npm/tdesign-miniprogram/button/button",
+    "t-dialog": "/miniprogram_npm/tdesign-miniprogram/dialog/dialog",
+    "t-toast": "/miniprogram_npm/tdesign-miniprogram/toast/toast",
+    "t-popup": "/miniprogram_npm/tdesign-miniprogram/popup/popup",
+    "t-radio-group": "/miniprogram_npm/tdesign-miniprogram/radio-group/radio-group",
+    "t-radio": "/miniprogram_npm/tdesign-miniprogram/radio/radio",
+    "t-picker": "/miniprogram_npm/tdesign-miniprogram/picker/picker",
+    "t-picker-item": "/miniprogram_npm/tdesign-miniprogram/picker-item/picker-item",
+    "t-tag": "/miniprogram_npm/tdesign-miniprogram/tag/tag",
+    "t-date-time-picker": "/miniprogram_npm/tdesign-miniprogram/date-time-picker/date-time-picker",
+    "t-collapse": "/miniprogram_npm/tdesign-miniprogram/collapse/collapse",
+    "t-collapse-panel": "/miniprogram_npm/tdesign-miniprogram/collapse-panel/collapse-panel",
+    "t-icon": "/miniprogram_npm/tdesign-miniprogram/icon/icon"
+  }
+} 

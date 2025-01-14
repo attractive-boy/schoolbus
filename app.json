@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/booking/index",
+    "pages/scan-ticket/index",
+    "pages/lostfound/index",
+    "pages/feedback/index",
+    "pages/profile/index",
+    "pages/lostfound/publish/index",
+    "pages/chat/chat",
+    "pages/wechat-association/index",
+    "pages/subscribe-official/index",
+    "pages/orders/index",
+    "pages/agreement/agreement",
+    "pages/agreement/agreementinfo"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "滨实接送服务",
+    "navigationBarBackgroundColor": "#1AAD19"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#1AAD19",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/booking/index",
+        "text": "班车预定",
+        "value": "booking",
+        "icon": "home",
+        "selectedIcon": "home-fill"
+      },
+      {
+        "pagePath": "pages/lostfound/index",
+        "text": "失物招领",
+        "value": "lostfound",
+        "icon": "search",
+        "selectedIcon": "search-fill"
+      },
+      {
+        "pagePath": "pages/feedback/index",
+        "text": "我的留言",
+        "value": "feedback",
+        "icon": "chat",
+        "selectedIcon": "chat-fill"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "个人信息",
+        "value": "profile",
+        "icon": "user",
+        "selectedIcon": "user-fill"
+      },
+      {
+        "pagePath": "pages/scan-ticket/index",
+        "text": "扫码验票",
+        "value": "scan",
+        "icon": "scan",
+        "selectedIcon": "scan-fill"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于发布失物招领信息"
+    }
+  },
+  "requiredPrivateInfos": [
+    "chooseLocation",
+    "getLocation"
+  ]
+}

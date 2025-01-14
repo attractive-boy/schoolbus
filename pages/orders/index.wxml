@@ -1,0 +1,61 @@
+<view class="orders-container">
+  <t-cell-group>
+    <t-cell
+      wx:for="{{orders}}"
+      wx:key="id"
+      title="{{item.orderNo}}"
+      description="¥{{item.totalAmount}} | {{item.routeName}}"
+      arrow
+      bind:click="handleOrderClick"
+      data-order="{{item}}"
+    >
+      <view slot="note" class="order-status status-{{item.status}}">
+        {{statusMap[item.status].text}}
+      </view>
+    </t-cell>
+  </t-cell-group>
+
+  <t-popup visible="{{showPayPopup}}" bind:visible-change="onPayPopupChange" placement="bottom">
+    <view class="popup-content">
+      <view class="popup-header">
+        <text class="popup-title">确认支付</text>
+        <text class="popup-amount">¥{{currentOrder.totalAmount}}</text>
+      </view>
+      <view class="popup-body">
+        <view class="order-info">
+          <text class="info-label">订单编号</text>
+          <text class="info-value">{{currentOrder.orderNo}}</text>
+        </view>
+        <view class="order-info">
+          <text class="info-label">路线名称</text>
+          <text class="info-value">{{currentOrder.routeName}}</text>
+        </view>
+      </view>
+      <view class="popup-footer">
+        <t-button theme="primary" block bind:tap="handlePay">立即支付</t-button>
+      </view>
+    </view>
+  </t-popup>
+
+  <t-popup visible="{{showRefundPopup}}" bind:visible-change="onRefundPopupChange" placement="bottom">
+    <view class="popup-content">
+      <view class="popup-header">
+        <text class="popup-title">申请退款</text>
+        <text class="popup-amount">¥{{currentOrder.totalAmount}}</text>
+      </view>
+      <view class="popup-body">
+        <view class="order-info">
+          <text class="info-label">订单编号</text>
+          <text class="info-value">{{currentOrder.orderNo}}</text>
+        </view>
+        <view class="order-info">
+          <text class="info-label">路线名称</text>
+          <text class="info-value">{{currentOrder.routeName}}</text>
+        </view>
+      </view>
+      <view class="popup-footer">
+        <t-button theme="danger" block bind:tap="handleRefund">确认退款</t-button>
+      </view>
+    </view>
+  </t-popup>
+</view> 

@@ -1,0 +1,19 @@
+<view class="container" style="padding: 20px; background-color: #f9f9f9;">
+  <text class="title" style="font-size: 6vw; font-weight: bold; color: #333; text-align: center;">滨实求知线报名+推送服务授权</text>
+  <view class="agreement" style="margin-top: 15px; line-height: 1.5; color: #555;">
+    <text style="font-size: 4vw; line-height: 1.6;">滨实求知线是杭州公交集团第二汽车公司为解决早晚高峰孩子“接送难”问题,响应学校与家长需求开通的小区至杭州滨江实验学校的求知专线。</text>
+    <text style="font-size: 4vw; line-height: 1.6;">本系统为学校、家委授权第三方开发的线上专线管理系统，便于本校乘车学生报名、订票、乘车信息推送等。</text>
+    <view style="margin-top: 10px;">
+      <text>乘坐求知专线代表接受：</text>
+      <view>
+        <view bind:tap="openLink" data-url="求知专线乘车制度" style="color: #007aff;">1. 《求知专线乘车制度》</view>
+        <view bind:tap="openLink" data-url="求知专线乘车公约" style="color: #007aff;">2. 《求知专线乘车公约》</view>
+      </view>
+    </view>
+    <text style="font-size: 4vw; line-height: 1.6;">本系统仅为方便乘车报名、专线管理等使用,一切以学校通知为准。</text>
+  </view>
+  <t-checkbox-group bindchange="toggleAgreement" style="margin-top: 20px; background-color: #f9f9f9;">
+    <t-checkbox value="agree" style="font-size: 4vw; background-color: #f9f9f9; color: #007aff;">我已阅读并同意以上协议</t-checkbox>
+  </t-checkbox-group>
+  <t-button bindtap="submitAgreement" style="margin-top: 20px; background-color: #007aff; color: white;width: 100%;">确认</t-button>
+</view> 

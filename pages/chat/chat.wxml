@@ -1,0 +1,85 @@
+<view class="message-board-container">
+  <scroll-view 
+    scroll-y 
+    class="message-board-list"
+    refresher-enabled="{{true}}"
+    refresher-triggered="{{isRefreshing}}"
+    bindrefresherrefresh="onRefresh"
+  >
+    <t-cell-group theme="card">
+      <view class="message-card" wx:for="{{messages}}" wx:key="id" style="border: 1rpx solid #e7e7e7;">
+        <view class="message-card-header">
+          <view class="user-info">
+            <t-avatar
+              class="avatar"
+              size="small"
+              image="{{item.avatarUrl}}"
+              shape="round"
+              fallback-image="/assets/images/default-avatar.png"
+            />
+            <text class="author-name">{{item.author || '匿名用户'}}</text>
+          </view>
+          <text class="message-time">{{item.time}}</text>
+        </view>
+        <view class="message-card-content">
+          {{item.content || '该消息为空'}}
+        </view>
+      </view>
+      
+      <!-- 无消息时的提示 -->
+      <view class="empty-tip" wx:if="{{!messages.length}}">
+        <text>暂无留言</text>
+      </view>
+    </t-cell-group>
+  </scroll-view>
+
+  <t-button 
+    class="fab-button" 
+    theme="primary" 
+    shape="circle" 
+    size="large"
+    icon="add"
+    bind:tap="showModal"
+  />
+
+  <!-- 发布弹窗 -->
+  <t-popup
+    visible="{{showModal}}"
+    bind:visible-change="onVisibleChange"
+    placement="bottom"
+  >
+    <view class="popup-content">
+      <view class="popup-header">
+        <view class="popup-title">发布留言</view>
+        <t-button 
+          variant="text" 
+          size="small" 
+          bindtap="hideModal"
+          class="close-btn"
+        >取消</t-button>
+      </view>
+      
+      <t-textarea
+        class="modal-textarea"
+        placeholder="写下你的留言..."
+        maxlength="200"
+        indicator
+        disableDefaultPadding="{{true}}"
+        value="{{inputValue}}"
+        bind:change="onInputChange"
+        autosize="{{ {maxHeight: 200, minHeight: 100} }}"
+      />
+      
+      <view class="popup-footer">
+        <t-button 
+          block 
+          theme="primary" 
+          bindtap="sendMessage"
+          loading="{{sending}}"
+          hover-class="none"
+          shape="round"
+        >发布</t-button>
+      </view>
+    </view>
+  </t-popup>
+</view>

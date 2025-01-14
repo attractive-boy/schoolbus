@@ -1,0 +1,23 @@
+.create-page {
+  min-height: 100vh;
+  background: #fff;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.radio-group {
+  display: flex;
+  padding: 16rpx 0;
+}
+
+.form-actions {
+  margin-top: 48rpx;
+  padding: 0 32rpx 32rpx;
+}
+
+.t-upload {
+  padding: 16rpx 0;
+}
+
+.t-textarea {
+  padding: 16rpx 0;
+} 

@@ -1,0 +1,31 @@
+<view class="profile-container">
+  <view class="user-info">
+    <t-avatar 
+      image="{{userInfo.avatarUrl}}" 
+      size="large" 
+    />
+    <view class="user-detail">
+      <view class="username">{{userInfo.nickname || '未设置姓名'}}</view>
+      <view class="phone">{{userInfo.phone}}</view>
+    </view>
+  </view>
+
+  <view class="info-section">
+    <t-cell-group>
+      <t-cell 
+        title="我的订单" 
+        arrow 
+        url="/pages/orders/index"
+      />
+      <t-cell 
+        title="乘车码绑定" 
+        arrow
+        bind:click="handleScanCode"
+      />
+      <button open-type="contact" class="customer-service">
+        <t-cell title="在线客服" arrow />
+      </button>
+    </t-cell-group>
+  </view>
+
+</view> 

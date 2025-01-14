@@ -1,0 +1,9 @@
+<t-tab-bar value="{{value}}" bindchange="onChange" split="{{false}}">
+  <t-tab-bar-item
+    wx:for="{{userRole === 'driver' ? driverList : passengerList}}"
+    wx:key="value"
+    value="{{item.value}}"
+    icon="{{item.icon}}"
+    label="{{item.label}}"
+  />
+</t-tab-bar> 

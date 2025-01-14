@@ -1,0 +1,33 @@
+<view class="chat-container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <t-search
+      value="{{searchValue}}"
+      placeholder="搜索用户"
+      bind:change="onSearchChange"
+    />
+  </view>
+
+  <!-- 用户列表 -->
+  <view class="user-list">
+    <t-cell-group>
+      <t-cell
+        wx:for="{{userList}}"
+        wx:key="id"
+        hover
+        bind:tap="onUserSelect"
+        data-user="{{item}}"
+        image="{{item.avatar_url}}"
+        title="{{item.nickname || '未知用户'}}"
+        arrow
+      >
+      </t-cell>
+    </t-cell-group>
+  </view>
+
+  <!-- 无数据展示 -->
+  <t-empty
+    wx:if="{{!userList.length}}"
+    description="暂无聊天记录"
+  />
+</view> 

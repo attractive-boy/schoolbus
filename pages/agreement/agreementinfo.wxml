@@ -1,0 +1,4 @@
+<!--pages/agreement/agreementinfo.wxml-->
+<view class="container" style="padding: 20px; background-color: #f9f9f9;">
+  <rich-text nodes="{{agreementContent}}"></rich-text>
+</view>

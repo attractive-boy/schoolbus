@@ -1,0 +1,45 @@
+<view class="create-page">
+  <view class="form">
+    <t-cell-group>
+      <t-form-item label="类型" name="type">
+        <t-radio-group value="{{form.type}}" bind:change="onTypeChange" t-class="radio-group">
+          <t-radio value="lost" label="寻物启事" />
+          <t-radio value="found" label="招领启事" />
+        </t-radio-group>
+      </t-form-item>
+
+
+
+      <t-form-item label="图片">
+        <t-upload
+          mediaType="{{['image']}}"
+          max="{{9}}"
+          files="{{form.images}}"
+          bind:success="onUploadSuccess"
+          bind:remove="onUploadRemove"
+        />
+      </t-form-item>
+
+      <t-form-item label="地点" name="location" rules="{{[{required: true, message: '请选择地点'}]}}">
+        <t-cell title="地点" arrow bind:tap="showLocationPicker" hover>
+          <view slot="note" class="selected-dates" catch:tap="stopPropagation">
+            <text>{{form.location}}</text>
+          </view>
+        </t-cell>
+         
+      </t-form-item>
+
+
+    </t-cell-group>
+
+    <view class="form-actions">
+      <t-button theme="primary" block size="large" bind:tap="onSubmit">
+        发布
+      </t-button>
+    </view>
+  </view>
+</view>
+
+<t-picker visible="{{showLocationPicker}}" value="{{selectedLocationIndex}}" data-key="location" title="请选择地点" cancelBtn="取消" confirmBtn="确认" usingCustomNavbar bindchange="onLocationChange" bindpick="onColumnChange" bindcancel="onPickerCancel" bindconfirm="onPickerConfirm" >
+  <t-picker-item options="{{locationOptions}}"></t-picker-item>
+</t-picker>

@@ -1,0 +1,43 @@
+.profile-container {
+  min-height: 100vh;
+  background: #f6f6f6;
+}
+
+.user-info {
+  background: #fff;
+  padding: 40rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.user-detail {
+  margin-left: 30rpx;
+}
+
+.username {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.phone {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.info-section {
+  margin-bottom: 40rpx;
+}
+
+.customer-service {
+  padding: 0;
+  background: none;
+  width: 100%;
+  border: none;
+  line-height: inherit;
+}
+
+.customer-service::after {
+  border: none;
+}

@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "登录",
+  "usingComponents": {
+    "t-input": "/miniprogram_npm/tdesign-miniprogram/input/input",
+    "t-button": "/miniprogram_npm/tdesign-miniprogram/button/button",
+    "t-toast": "/miniprogram_npm/tdesign-miniprogram/toast/toast",
+    "t-radio": "/miniprogram_npm/tdesign-miniprogram/radio/radio",
+    "t-radio-group": "/miniprogram_npm/tdesign-miniprogram/radio-group/radio-group",
+    "t-picker": "/miniprogram_npm/tdesign-miniprogram/picker/picker",
+    "t-picker-item": "/miniprogram_npm/tdesign-miniprogram/picker-item/picker-item",
+    "t-cell": "/miniprogram_npm/tdesign-miniprogram/cell/cell"
+  }
+}

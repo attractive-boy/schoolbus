@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <view class="loading-text">加载中...</view>
+  </view>
+  
+  <web-view 
+    wx:else
+    src="{{authUrl}}"
+    bindmessage="bindmessage"
+    bindload="bindload"
+    binderror="binderror">
+  </web-view>
+</view> 
